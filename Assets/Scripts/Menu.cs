@@ -6,8 +6,8 @@ public class Menu : MonoBehaviour
 {
     [SerializeField]
     AudioClip[] clips;
-	[SerializeField]
-	AudioSource src;
+    [SerializeField]
+    AudioSource src;
 
     int _clipIdx;
     string _labelString;
@@ -32,7 +32,7 @@ public class Menu : MonoBehaviour
             {
                 _clipIdx = clips.Length - 1;
             }
-			UpdateLabelString();
+            UpdateLabelString();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -44,25 +44,25 @@ public class Menu : MonoBehaviour
             {
                 _clipIdx = 0;
             }
-			UpdateLabelString();
+            UpdateLabelString();
         }
-		if (Input.GetKeyDown(KeyCode.Z))
-		{
-			src.clip = clips[_clipIdx];
-			src.Play();
-		}
-		if (Input.GetKeyDown(KeyCode.X))
-		{
-			src.Stop();
-		}
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            src.clip = clips[_clipIdx];
+            src.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            src.Stop();
+        }
     }
 
     void OnGUI()
     {
         GUILayout.Label(_labelString);
-		GUILayout.Label("[←][→] ... AudioClipを選択");
-		GUILayout.Label("[Z] ... 再生開始");
-		GUILayout.Label("[X] ... 再生停止");
+        GUILayout.Label("[←][→] ... AudioClipを選択");
+        GUILayout.Label("[Z] ... 再生開始");
+        GUILayout.Label("[X] ... 再生停止");
     }
 
     void UpdateLabelString()
